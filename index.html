@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amira's Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf6f0;
+      --blush: #f5ddd5;
+      --rose: #d4897a;
+      --mauve: #b07070;
+      --sage: #8aab94;
+      --sage-light: #c8dece;
+      --brown: #6b4f4f;
+      --text: #4a3535;
+      --light-text: #7a5c5c;
+      --white: #ffffff;
+      --shadow: rgba(107, 79, 79, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 246, 240, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1.5px solid var(--blush);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      box-shadow: 0 2px 18px var(--shadow);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      color: var(--light-text);
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1.5px solid transparent;
+      transition: all 0.28s ease;
+    }
+
+    nav a:hover {
+      background: var(--rose);
+      color: var(--white);
+      border-color: var(--rose);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212, 137, 122, 0.35);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 100px 24px 60px;
+      text-align: center;
+      scroll-margin-top: 70px;
+    }
+
+    /* ── HOME ── */
+    #home {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--blush) 60%, #f0d8d0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,137,122,0.18) 0%, transparent 70%);
+      top: -80px; right: -80px;
+      pointer-events: none;
+    }
+
+    #home::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138,171,148,0.15) 0%, transparent 70%);
+      bottom: -60px; left: -60px;
+      pointer-events: none;
+    }
+
+    #home h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      color: var(--brown);
+      line-height: 1.35;
+      max-width: 700px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    #home h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--mauve);
+      letter-spacing: 0.04em;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+
+    .home-deco {
+      font-size: 2.8rem;
+      margin-bottom: 24px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      gap: 28px;
+    }
+
+    #about img {
+      width: 160px; height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--rose);
+      box-shadow: 0 8px 28px rgba(212,137,122,0.25);
+      transition: transform 0.3s ease;
+    }
+
+
+    .section-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 36px 44px;
+      max-width: 580px;
+      box-shadow: 0 6px 32px var(--shadow);
+      border: 1px solid var(--blush);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--brown);
+      margin-bottom: 18px;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--light-text);
+      font-weight: 400;
+    }
+
+    /* ── HOBBIES ── */
+    #hobbies {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--sage-light) 100%);
+      gap: 28px;
+    }
+
+    .hobbies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      max-width: 540px;
+    }
+
+    .hobby-tag {
+      background: var(--white);
+      border: 1.5px solid var(--rose);
+      color: var(--brown);
+      border-radius: 50px;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 3px 12px var(--shadow);
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+
+    .hobby-tag:hover {
+      background: var(--white);
+      color: var(--brown);
+      transform: none;
+      box-shadow: 0 3px 12px var(--shadow);
+      cursor: default;
+    }
+
+    /* ── WEBSITES ── */
+    #websites {
+      background: var(--white);
+      gap: 28px;
+    }
+
+    .website-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .website-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--cream);
+      border: 1.5px solid var(--blush);
+      border-radius: 14px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brown);
+      box-shadow: 0 3px 14px var(--shadow);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .website-list li:hover {
+      background: var(--blush);
+      transform: translateX(6px);
+      border-color: var(--rose);
+    }
+
+    .website-list li a {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+    }
+
+    .num-badge {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: linear-gradient(160deg, var(--blush) 0%, #f0d8d0 100%);
+      gap: 28px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 38px 48px;
+      max-width: 480px;
+      box-shadow: 0 8px 32px var(--shadow);
+      border: 1px solid var(--blush);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      font-size: 2.4rem;
+    }
+
+    .contact-email {
+      font-size: 0.98rem;
+      color: var(--mauve);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      word-break: break-all;
+    }
+
+    .contact-email a {
+      text-decoration: none;
+      color: var(--rose);
+      transition: color 0.2s;
+    }
+
+    .contact-email a:hover { color: var(--brown); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 22px;
+      font-size: 0.82rem;
+      color: var(--light-text);
+      background: var(--blush);
+      border-top: 1.5px solid #eac9c0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 500px) {
+      nav { gap: 4px; padding: 10px 10px; flex-wrap: wrap; }
+      nav a { padding: 6px 12px; font-size: 0.8rem; }
+      .section-card, .contact-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="index.html#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#hobbies">Hobbies</a>
+    <a href="index.html#websites">Websites</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="home-deco">🌸</div>
+    <h1>Amira Lorraine D. Deudor<br>BS Information Technology<br>Major in MAA</h1>
+    <h3>Welcome to my Website!</h3>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about">
+    <img
+      src="https://i.pinimg.com/736x/51/0a/c0/510ac020ccfc438d7ba4911a901b9134.jpg"
+      alt="Furina"
+    />
+    <div class="section-card">
+      <h2>About Me</h2>
+      <p class="about-text">
+        My name is Amira Lorraine D. Deudor, I am a BSIT student specializing in
+        Multimedia Arts and Animation from INF249.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <div class="section-card">
+      <h2>My Hobbies</h2>
+      <div class="hobbies-grid" style="margin-top:10px;">
+        <span class="hobby-tag">🎨 Digital Art</span>
+        <span class="hobby-tag">🎬 Animation</span>
+        <span class="hobby-tag">📺 Watching</span>
+        <span class="hobby-tag">🎵 Listening to Music</span>
+        <span class="hobby-tag">🎮 Gaming</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEBSITES -->
+  <section id="websites">
+    <h2>My Favorite Websites</h2>
+    <ol class="website-list">
+      <li>
+        <span class="num-badge">1</span>
+        <a href="https://www.youtube.com" target="_blank">YouTube</a>
+      </li>
+      <li>
+        <span class="num-badge">2</span>
+        <a href="https://www.google.com" target="_blank">Google</a>
+      </li>
+      <li>
+        <span class="num-badge">3</span>
+        <a href="https://www.pinterest.com" target="_blank">Pinterest</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <h2>Contact</h2>
+      <p class="contact-email">
+        <a href="mailto:deudorad@students.national-u.edu.ph">
+          deudorad@students.national-u.edu.ph
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Amira Lorraine D. Deudor &mdash; Personal Profile Website
+  </footer>
+
+  <script>
+    const navHeight = document.getElementById('mainNav').offsetHeight;
+
+    // Smooth scroll with nav offset on same-page anchor link click
+    document.querySelectorAll('#mainNav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href.startsWith('#') && !href.startsWith(window.location.pathname + '#') && !href.startsWith('index.html#')) {
+          // allow normal navigation for cross-page links (about.html, full paths, etc.)
+          return;
+        }
+
+        // same-page or index.html anchor link behavior
+        e.preventDefault();
+        const hash = href.includes('#') ? href.split('#')[1] : '';
+        if (!hash) return;
+        const target = document.getElementById(hash);
+        if (!target) return;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#mainNav a');
+
+    function setActive() {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - navHeight - 10) {
+          current = sec.id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.style.background = '';
+        link.style.color = '';
+        link.style.borderColor = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.background = 'var(--rose)';
+          link.style.color = '#fff';
+          link.style.borderColor = 'var(--rose)';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActive);
+    setActive();
+  </script>
+
+</body>
+</html>
