@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Amira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf6f0;
+      --blush: #f5ddd5;
+      --rose: #d4897a;
+      --mauve: #b07070;
+      --sage: #8aab94;
+      --sage-light: #c8dece;
+      --brown: #6b4f4f;
+      --text: #4a3535;
+      --light-text: #7a5c5c;
+      --white: #ffffff;
+      --shadow: rgba(107, 79, 79, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 246, 240, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1.5px solid var(--blush);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      box-shadow: 0 2px 18px var(--shadow);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--light-text);
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1.5px solid transparent;
+      transition: all 0.28s ease;
+    }
+
+    nav a:hover { background: var(--rose); color: var(--white); border-color: var(--rose); }
+
+    section {
+      padding: 100px 24px 60px;
+      text-align: center;
+      max-width: 960px;
+      margin: auto;
+      padding-top: 120px;
+    }
+
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--brown); margin-bottom: 20px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3.2vw, 2rem); color: var(--brown); margin-bottom: 14px; }
+
+    .section-card { background: var(--white); border-radius: 20px; padding: 32px; margin-top: 20px; box-shadow: 0 6px 28px var(--shadow); border: 1px solid var(--blush); }
+    p { color: var(--light-text); font-size: 1rem; line-height: 1.7; margin: 10px 0; }
+
+    footer { text-align: center; padding: 18px; margin-top: 30px; font-size: 0.82rem; color: var(--light-text); background: var(--blush); border-top: 1.5px solid #eac9c0; }
+
+    @media (max-width: 500px) {
+      nav { gap: 4px; padding: 10px; }
+      nav a { padding: 6px 12px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#hobbies">Hobbies</a>
+    <a href="index.html#websites">Websites</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <section>
+    <h1>About Me</h1>
+    <div class="section-card">
+      <h2>Who I Am</h2>
+      <p>Hello, I am Amira Lorraine D. Deudor, a BSIT student majoring in Multimedia Arts and Animation (MAA). I enjoy building user-friendly experiences with clean layout and modern styling.</p>
+      <h2>What I Do</h2>
+      <p>I am a 2nd year college student who takes BS Information Technology speciallizing in Multimedia Art and Animation.</p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:deudorad@students.national-u.edu.ph">deudorad@students.national-u.edu.ph</a></p>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Amira Lorraine D. Deudor — About Page</footer>
+</body>
+</html>
